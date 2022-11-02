@@ -30,7 +30,7 @@ function ResultTable({ props }) {
           <StyledTH>YAKE</StyledTH>
         </StyledTR>
       </StickyTHead>
-      {generateTable()}
+      <tbody>{generateTable()}</tbody>
     </Table>
   );
 }
