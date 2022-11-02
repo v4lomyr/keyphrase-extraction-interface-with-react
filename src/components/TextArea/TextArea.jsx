@@ -1,8 +1,12 @@
 import CostumedTextArea from './TextArea.style';
 
-function TextArea(props) {
+function TextArea({ placeholder, onChange }) {
   return (
-    <CostumedTextArea autoComplete="off" placeholder={props.placeholder} />
+    <CostumedTextArea
+      autoComplete="off"
+      placeholder={placeholder}
+      onChange={(e) => onChange(e.target.value)}
+    />
   );
 }
 
