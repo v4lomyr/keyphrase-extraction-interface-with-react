@@ -1,24 +1,35 @@
+import { useEffect, useState } from 'react';
+import Checkbox from '../Checkbox/Checkbox';
+import methods from './MethodModel';
+
 function MethodSelections() {
+  const [checkedItems, setCheckedItems] = useState(new Map());
+
+  function handleChange(e) {
+    const item = e.target.name;
+    const isChecked = e.target.checked;
+    setCheckedItems((prev) => {
+      prev.set(item, isChecked);
+      return new Map(prev);
+    });
+  }
+
+  useEffect(() => {
+    console.log(checkedItems);
+  }, [checkedItems]);
+
   return (
     <>
-      <div>
-        <div>
-          <input type={'checkbox'} name="method" value={'PositionRank'} />{' '}
-          PositionRank
-        </div>
-        <div>
-          <input type={'checkbox'} name="method" value={'TextRank'} /> TextRank
-        </div>
-      </div>
-      <div>
-        <div>
-          <input type={'checkbox'} name="method" value={'TopicRank'} />{' '}
-          TopicRank
-        </div>
-        <div>
-          <input type={'checkbox'} name="method" value={'YAKE'} /> YAKE
-        </div>
-      </div>
+      {methods.map((item) => (
+        <label key={item.key}>
+          <Checkbox
+            name={item.name}
+            checked={checkedItems.get(item.name)}
+            onChange={handleChange}
+          />{' '}
+          {item.name}
+        </label>
+      ))}
     </>
   );
 }
