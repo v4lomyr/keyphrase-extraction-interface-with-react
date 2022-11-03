@@ -1,37 +1,42 @@
-import Table, {
-  StickyTHead,
-  StyledTD,
-  StyledTH,
-  StyledTR,
-} from './Table.style';
+import { HorizontalFlex } from '../Form/Form.style';
+import methods from '../MethodSelections/MethodModel';
+import Table, { StyledTBody } from './Table.style';
 
-function ResultTable({ props }) {
-  const generateTable = () => {
-    let table = [];
+function ResultTable({ model = methods }) {
+  function generateTD(arr = [], threshold = 3) {
+    const children = [];
+    arr.forEach((item, index) =>
+      children.push(
+        <tr>
+          {index < threshold ? (
+            <td
+              style={{ border: '1px solid black', backgroundColor: 'yellow' }}
+            >
+              {item}
+            </td>
+          ) : (
+            <td style={{ border: '1px solid black' }}>{item}</td>
+          )}
+        </tr>
+      )
+    );
+    console.log(children);
+    return children;
+  }
 
-    for (let i = 0; i < 100; i++) {
-      let children = [];
-
-      for (let j = 0; j < 4; j++) {
-        children.push(<StyledTD>Kata A</StyledTD>);
-      }
-
-      table.push(<StyledTR>{children}</StyledTR>);
-    }
-    return table;
-  };
   return (
-    <Table>
-      <StickyTHead>
-        <StyledTR>
-          <StyledTH>PositionRank</StyledTH>
-          <StyledTH>TextRank</StyledTH>
-          <StyledTH>TopicRank</StyledTH>
-          <StyledTH>YAKE</StyledTH>
-        </StyledTR>
-      </StickyTHead>
-      <tbody>{generateTable()}</tbody>
-    </Table>
+    <HorizontalFlex>
+      {model
+        .filter((item) => item.selected)
+        .map((item) => (
+          <Table>
+            <thead>
+              <th>{item.name}</th>
+            </thead>
+            <StyledTBody>{generateTD(item.keyphrase)}</StyledTBody>
+          </Table>
+        ))}
+    </HorizontalFlex>
   );
 }
 
