@@ -29,7 +29,13 @@ function KeyphraseInterface() {
           <HorizontalFlex style={{ justifyContent: 'space-evenly' }}>
             <MethodSelections model={model} onChange={setModel} />
           </HorizontalFlex>
-          <Button />
+          <Button
+            title={title}
+            abstract={abstract}
+            goldenKeyphrase={goldenKeyphrase}
+            model={model}
+            setModel={setModel}
+          />
           <ResultTable />
         </VerticalFlex>
       </Form>
