@@ -2,9 +2,9 @@ import methods from '../MethodSelections/MethodModel';
 import StyledButton from './Button.style';
 
 function Button({
-  title,
-  abstract,
-  goldenKeyphrase,
+  title = '',
+  abstract = '',
+  goldenKeyphrase = '',
   model = methods,
   setModel,
 }) {
@@ -16,8 +16,12 @@ function Button({
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            title: title,
-            abstract: abstract,
+            title: title.toLowerCase(),
+            abstract: abstract.toLowerCase(),
+            goldenKeyphrase: goldenKeyphrase
+              .toLowerCase()
+              .replace(/, /gi, '|')
+              .split('|'),
           }),
         })
           .then((response) => response.json())
