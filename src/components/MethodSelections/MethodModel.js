@@ -12,7 +12,7 @@ const methods = [
     key: 'TR',
     label: 'TextRank',
     selected: false,
-    url: 'https://app-keyphrase.herokuapp.com/modeltextrank/',
+    url: 'https://app-keyphrase.herokuapp.com/modeltextrank',
     keyphrase: [],
   },
   {
