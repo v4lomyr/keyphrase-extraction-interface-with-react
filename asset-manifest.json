@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/keyphrase-extraction-interface-with-react/static/css/main.ff4dade8.css",
+    "main.js": "/keyphrase-extraction-interface-with-react/static/js/main.15007d90.js",
+    "static/js/787.6b273f25.chunk.js": "/keyphrase-extraction-interface-with-react/static/js/787.6b273f25.chunk.js",
+    "index.html": "/keyphrase-extraction-interface-with-react/index.html",
+    "main.ff4dade8.css.map": "/keyphrase-extraction-interface-with-react/static/css/main.ff4dade8.css.map",
+    "main.15007d90.js.map": "/keyphrase-extraction-interface-with-react/static/js/main.15007d90.js.map",
+    "787.6b273f25.chunk.js.map": "/keyphrase-extraction-interface-with-react/static/js/787.6b273f25.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ff4dade8.css",
+    "static/js/main.15007d90.js"
+  ]
+}
